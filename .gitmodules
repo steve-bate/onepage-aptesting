@@ -1,0 +1,4 @@
+[submodule "submodules/onepage.pub"]
+	path = submodules/onepage.pub
+	url = https://github.com/steve-bate/onepage.pub.git
+	branch = steve-bate/testing

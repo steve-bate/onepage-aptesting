@@ -1,0 +1,111 @@
+[server.capabilities]
+# C2S
+c2s.default = true
+# c2s.outbox.default = true
+# c2s.outbox.get = true
+# c2s.outbox.post = true
+# c2s.outbox.post.Create = true
+# c2s.outbox.post.Update = true
+# c2s.outbox.post.Delete = true
+# c2s.outbox.post.Follow = true
+# c2s.outbox.post.Add = true
+# c2s.outbox.post.Remove = true
+# c2s.outbox.post.Like = true
+# c2s.outbox.post.Block = true
+# c2s.outbox.post.Undo = true
+
+# S2S
+s2s.default = true
+# s2s.inbox.default = true
+# s2s.inbox.get = true
+# s2s.inbox.post = true
+# s2s.inbox.post.Create = true
+# s2s.inbox.post.Update = true
+# s2s.inbox.post.Delete = true
+# s2s.inbox.post.Follow = true
+# s2s.inbox.post.Accept = true
+# s2s.inbox.post.Reject = true
+# s2s.inbox.post.Add = true
+# s2s.inbox.post.Remove = true
+# s2s.inbox.post.Like = true
+# s2s.inbox.post.Announce = true
+# s2s.inbox.post.Undo = true
+# s2s.inbox.shared = true
+
+# Collections support - both spec'ed and custom
+# collections.default = true
+# collections.custom = true
+
+# Other AP featuress
+tombstones = true
+# Some AP servers don't support standard audience processing
+audience = false
+
+# Other non-AP features
+webfinger = true
+nodeinfo = false
+x-nodeinfo2 = false
+host-meta = false
+portable_contacts = false # poco
+robots_txt = false
+
+#
+# Test Configurations
+#
+
+[test_remote_dereference]
+skip = "Doesn't deref inbox Create object if it's a URI"
+bug = true
+
+[test_actor_blocking]
+skip = 'Blocking not working'
+bug = true
+
+[test_activity_with_multiple_objects]
+skip = "Doesn't support multiple objects in activity"
+# Not a common use case
+
+[test_inbox_add]
+skip = "Doesn't handle remote add (actor) correctly"
+bug = true
+
+[test_inbox_remove]
+skip = "Doesn't handle remote add (actor) correctly (causing remove failure)"
+bug = true
+
+# There might be something strange going on here since the outbox test passes
+[test_inbox_post.'application/ld+json; profile="https://www.w3.org/ns/activitystreams"']
+skip = "Doesn't handle standard AP media type"
+bug = true
+
+[test_outbox_create_merges_recipients]
+skip = "Doesn't support audience"
+bug = true
+
+[test_outbox_post_bad_media_type]
+skip = "Accepted bad media type"
+bug = true
+
+[test_inbox_post_bad_media_type]
+skip = "Accepted bad media type"
+bug = true
+
+[test_outbox_requires_target_for_remove]
+skip = "Add doesn't appear to save the updated collection, so Remove fails."
+bug = true
+
+[test_required_actor_properties]
+skip = "Wrong security context"
+bug = true
+
+[test_outbox_wraps_object_and_copies_recipients]
+skip = "Don't appear to wrap objects posted to outbox"
+bug = true
+
+[test_inbox_accept_deduplicate]
+skip = "Looks like dup delivery breaks inbox retrieval"
+bug = true
+
+[test_outbox_requires_object_for_certain_activities.Like-with_object]
+skip = "Calling undefined function."
+bug = true

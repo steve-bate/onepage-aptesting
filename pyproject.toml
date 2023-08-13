@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "onepage-aptesting"
+version = "0.1.0"
+description = ""
+authors = ["Steve Bate <svc-github@stevebate.net>"]
+readme = "README.md"
+packages = [{ include = "onepage_aptesting" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+activitypub-testsuite = { path = "../activitypub-testsuite", develop = true }
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "steve"
+url = "http://nas.lan:3000/api/packages/steve/pypi/simple/"
+priority = "supplemental"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+black = "^23.7.0"
+ruff = "^0.0.284"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+# junit_family = "xunit1"
+# filterwarnings = ["ignore::DeprecationWarning", "ignore::PendingDeprecationWarning"]
+addopts = [
+    #    "--import-mode=importlib",
+    #     "--ignore=activitypub_testsuite/servers/apex/app/node_modules",
+    #     # "--junitxml=tests/activitypub/test-results.xml",
+    # #    "--cov=vocata",
+]
+markers = [
+    "ap_reqlevel: ActivityPub requirements level",
+    "ap_capability: ActivityPub/AS2 capability required for test",
+]
