@@ -24,6 +24,7 @@ The project is currently configured to expect the `activitypub-testsuite` reposi
 git clone https://github.com/steve-bate/activitypub-testsuite.git
 cd activitypub-testsuite/
 poetry install
+cd -
 ```
 
 3. Clone the `onepage-aptesting` repository into the `testing` directory (a sibling of the previous repository). *Note the special submodule-related argument to clone.*
