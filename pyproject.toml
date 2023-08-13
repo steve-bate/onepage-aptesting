@@ -35,14 +35,6 @@ profile = "black"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
-# junit_family = "xunit1"
-# filterwarnings = ["ignore::DeprecationWarning", "ignore::PendingDeprecationWarning"]
-addopts = [
-    #    "--import-mode=importlib",
-    #     "--ignore=activitypub_testsuite/servers/apex/app/node_modules",
-    #     # "--junitxml=tests/activitypub/test-results.xml",
-    # #    "--cov=vocata",
-]
 markers = [
     "ap_reqlevel: ActivityPub requirements level",
     "ap_capability: ActivityPub/AS2 capability required for test",

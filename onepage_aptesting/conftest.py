@@ -4,7 +4,6 @@ import httpx
 import pytest
 from activitypub_testsuite.fixtures import *  # noqa
 from activitypub_testsuite.interfaces import ServerTestSupport
-from activitypub_testsuite.support import find_available_tcp_port
 
 from .support import OnepageServerTestSupport
 
@@ -15,13 +14,8 @@ def server_test_directory():
 
 
 @pytest.fixture(scope="session")
-def local_server_port() -> int:
-    return find_available_tcp_port(50000, 51000)
-
-
-@pytest.fixture(scope="session")
-def local_base_url(local_server_port):
-    return f"https://localhost:{local_server_port}"
+def local_server_url_scheme():
+    return "https"
 
 
 @pytest.fixture
