@@ -29,7 +29,7 @@ poetry install
 3. Clone the `onepage-aptesting` repository into the `testing` directory (a sibling of the previous repository). *Note the special submodule-related argument to clone.*
 
 ```bash
-git clone --recurse-submodules http://nas.lan:3000/steve/onepage-aptesting.git
+git clone --recurse-submodules https://github.com/steve-bate/onepage-aptesting
 ```
 
 > [!NOTE]
