@@ -2,7 +2,7 @@
 
 Experimental extension of the [activitypub-testsuite](https://github.com/steve-bate/activitypub-testsuite) for testing [onepage.pub](https://github.com/evanp/onepage.pub).
 
-This repository contains onepage.pub-specific code and configuration.
+This repository contains onepage.pub-specific code and configuration. The test framework starts a Node.js subprocess at the beginning of a test session. Before each test, a custom test reset API is called to reset the onepage.pub database.
 
 ## Install
 
