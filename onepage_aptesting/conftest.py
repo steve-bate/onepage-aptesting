@@ -9,6 +9,16 @@ from .support import OnepageServerTestSupport
 
 
 @pytest.fixture(scope="session")
+def report_project_metadata():
+    return {
+        "Project Name": "onepage.pub",
+        "Project Description": "A one-page ActivityPub server",
+        "Project URL": '<a href="https://github.com/evanp/onepage.pub">https://github.com/evanp/onepage.pub</a>',
+        # "Project Notes"
+    }
+
+
+@pytest.fixture(scope="session")
 def server_test_directory():
     return os.path.dirname(__file__)
 
