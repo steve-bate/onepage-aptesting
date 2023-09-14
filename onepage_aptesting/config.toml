@@ -70,6 +70,14 @@ bug = true
 xfail = 'Blocking not working'
 bug = true
 
+[test_multityped_activity_is_delivered_to_outbox]
+xfail = 'TypeError: type.toLowerCase is not a function'
+bug = true
+
+[test_multityped_object_is_delivered_to_outbox]
+xfail = 'TypeError: type.toLowerCase is not a function'
+bug = true
+
 [test_activity_with_multiple_objects]
 xfail = "Doesn't support multiple objects in activity"
 # Not a common use case
