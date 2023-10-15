@@ -8,6 +8,7 @@ from activitypub_testsuite.http.client import (
 )
 from activitypub_testsuite.http.token import HTTPTokenAuth
 from activitypub_testsuite.interfaces import Actor
+from activitypub_testsuite.support import get_id
 
 
 class OnepageServerTestSupport(HttpxServerTestSupport):
@@ -31,6 +32,10 @@ class OnepageLocalActor(HttpxLocalActor):
         # this will override the base class init of auth
         self.auth = HTTPTokenAuth(token)
         return httpx_get_json(actor_id, self.auth, "application/activity+json")
+
+    @property
+    def liked(self):
+        return get_id(self.profile.get("liked"))
 
     @staticmethod
     def _register_user(server, actor_name):
